@@ -1,0 +1,30 @@
+{
+  "name": "react-range-slider",
+  "version": "1.0.0",
+  "description": "Simple React range slider",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aklos/react-range-slider.git"
+  },
+  "author": "Alexander Klos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aklos/react-range-slider/issues"
+  },
+  "homepage": "https://github.com/aklos/react-range-slider#readme",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "postcss-modules": "^1.4.1"
+  }
+}
