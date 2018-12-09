@@ -9,7 +9,7 @@ Lots of nice optional features, and fully customizable styling.
 Install via npm
 
 ```
-npm install --save react-range-slider
+npm install --save @aklos/react-range-slider
 ```
 
 ## Usage
