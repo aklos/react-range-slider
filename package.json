@@ -1,5 +1,5 @@
 {
-  "name": "react-range-slider",
+  "name": "@aklos/react-range-slider",
   "version": "1.0.0",
   "description": "Simple React range slider",
   "main": "index.js",
