@@ -1,7 +1,7 @@
 {
   "name": "@aklos/react-range-slider",
-  "version": "1.0.1",
-  "description": "Simple React range slider",
+  "version": "1.0.2",
+  "description": "An easily customizable, simple range slider with plenty of optional functionality.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
