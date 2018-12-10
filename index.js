@@ -1,2 +1,2 @@
-const RangeSlider = require('./dist/RangeSlider').default;
+import RangeSlider from './dist/RangeSlider';
 export default RangeSlider;
