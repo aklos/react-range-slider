@@ -4,7 +4,8 @@
   "description": "Simple React range slider",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build src/RangeSlider.jsx"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
+    "parcel": "^1.10.3",
     "postcss-modules": "^1.4.1"
   }
 }

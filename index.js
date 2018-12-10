@@ -1,1 +1,1 @@
-export default require('./src/RangeSlider');
+export default require('./dist/RangeSlider');
