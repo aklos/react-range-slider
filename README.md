@@ -1,6 +1,6 @@
 # React Range Slider
 
-An easily customizable, simple range slider that actually does what you need it to do (if it doesn't please create an issue).
+Yet another range slider for React. However, this one is easily customizable, simple and actually does what you need it to do (if it doesn't please create an issue).
 
 Lots of nice optional features, and fully customizable styling.
 
@@ -17,9 +17,9 @@ npm install --save @aklos/react-range-slider
 Import the component into your project
 
 ```
-import RangeSlider from 'react-range-slider';
+import RangeSlider from '@aklos/react-range-slider';
 // or
-const RangeSlider = require('react-range-slider');
+const RangeSlider = require('@aklos/react-range-slider');
 ```
 
 Example configuration
