@@ -177,12 +177,18 @@ class RangeSlider extends React.Component {
     const customStyling = this.props.styling || {};
 
     const labels = this.props.showLabels ? (
-      <div className={cx(customStyling.labelContainer, { 
-        [customStyling.top]: this.props.labelPosition === 'top',
-        [customStyling.bottom]: this.props.labelPosition === 'bottom',
-        [customStyling.left]: this.props.labelPosition === 'left',
-        [customStyling.right]: this.props.labelPosition === 'right'
-      })} style={['top', 'bottom', 'left', 'right'].includes(this.props.labelPosition) ? this.styles[this.props.labelPosition] : {}}>
+      <div 
+        className={cx(customStyling.labelContainer, { 
+          [customStyling.top]: this.props.labelPosition === 'top',
+          [customStyling.bottom]: this.props.labelPosition === 'bottom',
+          [customStyling.left]: this.props.labelPosition === 'left',
+          [customStyling.right]: this.props.labelPosition === 'right'
+        })}
+        style={
+          ['top', 'bottom', 'left', 'right'].includes(this.props.labelPosition) 
+          ? this.styles[this.props.labelPosition] : {}
+        }
+      >
         <div className={cx(customStyling.label, customStyling.startLabel)}>
           { this.props.labelTransform ? this.props.labelTransform(this.state.start) : this.state.start }
         </div>
@@ -207,7 +213,11 @@ class RangeSlider extends React.Component {
               className={cx(customStyling.range, { 
                 [customStyling.draggable]: !this.props.disableRangeDrag
               })}
-              style={Object.assign({ left: `${startPercent}%`, width: `${rangePercent}%` }, this.styles.range, this.props.disableRangeDrag ? {} : this.styles.draggable)}
+              style={Object.assign(
+                { left: `${startPercent}%`, width: `${rangePercent}%` }, 
+                this.styles.range, 
+                this.props.disableRangeDrag ? {} : this.styles.draggable
+              )}
               onMouseDown={this.handleMouseDown}></div>
             : null }
           <span
