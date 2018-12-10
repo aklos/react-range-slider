@@ -1,3 +1,2 @@
-module.exports = {
-  RangeSlider: require('./dist/RangeSlider')
-};
+const RangeSlider = require('./dist/RangeSlider').default;
+export default RangeSlider;

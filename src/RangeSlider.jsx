@@ -184,7 +184,7 @@ class RangeSlider extends React.Component {
           { !this.props.disableRange ?
             <span
               dir='end'
-              className={cx(styles.handle, style.endHandle, customStyling.handle, customStyling.endHandle)}
+              className={cx(styles.handle, styles.endHandle, customStyling.handle, customStyling.endHandle)}
               style={{ left: `${endPercent}%` }}
               onMouseDown={this.handleMouseDown}></span>
             : null }
