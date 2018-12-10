@@ -186,7 +186,7 @@ class RangeSlider extends React.Component {
         })}
         style={
           ['top', 'bottom', 'left', 'right'].includes(this.props.labelPosition) 
-          ? this.styles[this.props.labelPosition] : {}
+          ? this.styles[this.props.labelPosition] : this.styles.bottom
         }
       >
         <div className={cx(customStyling.label, customStyling.startLabel)}>
