@@ -74,7 +74,7 @@ Every part of the slider is customizable, below is the CSS structure:
       * `&.startLabel` - Only on start label.
       * `&.endLabel` - Only on end label.
 
-Just pass your styling object in the `styling` prop to override as needed.
+Just pass your CSS classes in the `styling` prop to override as needed.
 
 ## Examples
 
