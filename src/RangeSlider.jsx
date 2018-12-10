@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import styles from './styles.css';
 
 const cx = require('classnames');
 
@@ -18,6 +17,48 @@ class RangeSlider extends React.Component {
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
+
+    this.styles = {
+      labels: {
+        display: 'flex',
+        flexDirection: 'row'
+      },
+      slider: {
+        backgroundColor: '#e6e6e6',
+        width: '100%',
+        height: '12px',
+        position: 'relative'
+      },
+      range: {
+        backgroundColor: '#38a1fd',
+        height: '100%',
+        position: 'absolute'
+      },
+      draggable: {
+        cursor: 'pointer'
+      },
+      handle: {
+        backgroundColor: '#393939',
+        width: '20px',
+        height: '20px',
+        position: 'absolute',
+        top: '50%',
+        transform: 'translate(-50%, -50%)',
+        cursor: 'pointer'
+      },
+      top: {
+        marginBottom: '12px'
+      },
+      bottom: {
+        marginTop: '12px'
+      },
+      left: {
+        marginRight: '24px'
+      },
+      right: {
+        marginLeft: '24px'
+      }
+    };
 
     this.state = {
       start: props.start !== undefined ? props.start : props.min,
@@ -136,21 +177,17 @@ class RangeSlider extends React.Component {
     const customStyling = this.props.styling || {};
 
     const labels = this.props.showLabels ? (
-      <div className={cx(styles.labelContainer, customStyling.labelContainer, { 
-        [styles.top]: this.props.labelPosition === 'top',
-        [styles.bottom]: this.props.labelPosition === 'bottom',
-        [styles.left]: this.props.labelPosition === 'left',
-        [styles.right]: this.props.labelPosition === 'right',
+      <div className={cx(customStyling.labelContainer, { 
         [customStyling.top]: this.props.labelPosition === 'top',
         [customStyling.bottom]: this.props.labelPosition === 'bottom',
         [customStyling.left]: this.props.labelPosition === 'left',
         [customStyling.right]: this.props.labelPosition === 'right'
-      })}>
-        <div className={cx(styles.label, styles.startLabel, customStyling.label, customStyling.startLabel)}>
+      })} style={['top', 'bottom', 'left', 'right'].includes(this.props.labelPosition) ? this.styles[this.props.labelPosition] : {}}>
+        <div className={cx(customStyling.label, customStyling.startLabel)}>
           { this.props.labelTransform ? this.props.labelTransform(this.state.start) : this.state.start }
         </div>
         { !this.props.disableRange ?
-          <div className={cx(styles.label, styles.endLabel, customStyling.label, customStyling.toLabel)}>
+          <div className={cx(customStyling.label, customStyling.endLabel)}>
             { this.props.labelTransform ? this.props.labelTransform(this.state.end) : this.state.end }
           </div>
           : null }
@@ -158,34 +195,31 @@ class RangeSlider extends React.Component {
     ) : null;
 
     return (
-      <div className={cx(styles.container, customStyling.container, { 
-        [styles.labelsLeft]: this.props.labelPosition === 'left', 
-        [styles.labelsRight]: this.props.labelPosition === 'right',
+      <div className={cx(customStyling.container, { 
         [customStyling.labelsLeft]: this.props.labelPosition === 'left', 
         [customStyling.labelsRight]: this.props.labelPosition === 'right'
-      })}>
+      })} style={['left', 'right'].includes(this.props.labelPosition) ? this.styles.labels : {}}>
         { this.props.showLabels && ['top', 'left'].includes(this.props.labelPosition) ? labels : null }
-        <div ref={r => { this.slider = r; }} className={cx(styles.slider, customStyling.slider)}>
+        <div ref={r => { this.slider = r; }} className={cx(customStyling.slider)} style={this.styles.slider}>
           { !this.props.disableRange ?
             <div
               dir='range'
-              className={cx(styles.range, customStyling.range, { 
-                [styles.draggable]: !this.props.disableRangeDrag,
+              className={cx(customStyling.range, { 
                 [customStyling.draggable]: !this.props.disableRangeDrag
               })}
-              style={{ left: `${startPercent}%`, width: `${rangePercent}%` }}
+              style={Object.assign({ left: `${startPercent}%`, width: `${rangePercent}%` }, this.styles.range, this.props.disableRangeDrag ? {} : this.styles.draggable)}
               onMouseDown={this.handleMouseDown}></div>
             : null }
           <span
             dir='start'
-            className={cx(styles.handle, styles.startHandle, customStyling.handle, customStyling.startHandle)}
-            style={{ left: `${startPercent}%` }}
+            className={cx(customStyling.handle, customStyling.startHandle)}
+            style={Object.assign({ left: `${startPercent}%` }, this.styles.handle)}
             onMouseDown={this.handleMouseDown}></span>
           { !this.props.disableRange ?
             <span
               dir='end'
-              className={cx(styles.handle, styles.endHandle, customStyling.handle, customStyling.endHandle)}
-              style={{ left: `${endPercent}%` }}
+              className={cx(customStyling.handle, customStyling.endHandle)}
+              style={Object.assign({ left: `${endPercent}%` }, this.styles.handle)}
               onMouseDown={this.handleMouseDown}></span>
             : null }
         </div>

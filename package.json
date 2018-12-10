@@ -26,7 +26,6 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "parcel": "^1.10.3",
-    "postcss-modules": "^1.4.1"
+    "parcel": "^1.10.3"
   }
 }

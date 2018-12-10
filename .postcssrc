@@ -1,4 +1,0 @@
-{
-  "modules": true,
-  "generateScopedName": "[name]__[local]"
-}
