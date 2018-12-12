@@ -1,6 +1,6 @@
 {
   "name": "@aklos/react-range-slider",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An easily customizable, simple range slider with plenty of optional functionality.",
   "main": "index.js",
   "scripts": {

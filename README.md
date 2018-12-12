@@ -49,7 +49,7 @@ Example configuration
 * `showLabels` - `Boolean`: Show start/end value labels. If range is disabled, only one label will show.
 * `labelPosition` - `Enum('top', 'bottom', 'left', 'right')`: Where to position the labels in relation to the slider.
 * `labelTransform` - `Function(labelStr)`: Change the label string output to whatever you want (ie. formatted dates, add units, etc.)
-* `styling` - `Object`: Pass your own styling overrides.
+* `styling` - `Object`: Pass your own styling overrides, as a flat CSS class name map.
 * `onChange` - `Function(valA, valB?)`: Handle the output value(s) however you like.
 
 ### Styling
@@ -74,7 +74,28 @@ Every part of the slider is customizable, below is the CSS structure:
       * `&.startLabel` - Only on start label.
       * `&.endLabel` - Only on end label.
 
-Just pass your CSS classes in the `styling` prop to override as needed.
+When overriding with `styling` prop, provide flat class name map:
+
+```
+/* sliderStyles.css */
+.container { background-color: blue; }
+.container.labelsLeft { display: flex; flex-direction: row; }
+.slider { width: 320px; }
+.slider.range { background-color: gray; }
+
+/* js */
+import styles from './sliderStyles.css';
+
+<RangeSlider
+  ...props
+  styling={{
+    container: styles.container,
+    labelsLeft: styles.labelsLeft,
+    slider: styles.slider,
+    range: styles.range
+  }}
+/>
+```
 
 ## Examples
 
